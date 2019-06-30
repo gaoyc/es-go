@@ -1,0 +1,23 @@
+package com.kigo.bigdata.elastic.es.demo;
+
+import org.elasticsearch.cluster.node.DiscoveryNode;
+import org.junit.Test;
+
+import java.util.List;
+
+/**
+ * Created by kigo on 18-1-16.
+ */
+public class RestClientTest {
+
+    @Test
+    public void testQuery() {
+        HttpEntity entity = new NStringEntity(
+                "{ \"query\": { \"match_all\": {}}}",
+                ContentType.APPLICATION_JSON);
+        // alternative: performRequestAsync
+        Response response = restClient.performRequest("POST",                                     "/_search", emptyMap(), entity);
+        String json = toString(response.getEntity());
+        // ...
+    }
+}

@@ -1,0 +1,6 @@
+# add the ignore files list
+.idea
+*.iml
+out
+gen
+target
